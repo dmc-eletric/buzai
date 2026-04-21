@@ -7,7 +7,7 @@ services:
     # Sửa Build Command để đảm bảo cài đặt vào đúng môi trường
     buildCommand: pip install -r requirements.txt
     # Sửa Start Command: Sử dụng python -m uvicorn để Render tìm thấy module
-    startCommand: python -m uvicorn main:app --host 0.0.0.0 --port $PORT
+    startCommand: ./.venv/bin/python -m uvicorn main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /health
     envVars:
       - key: DATABASE_URL
