@@ -17,7 +17,7 @@ services:
       - key: DEFAULT_ADMIN_ID
         value: admin
       - key: DEFAULT_ADMIN_PW
-        value: admin1234
+        value: admin
       - key: ALLOWED_ORIGINS
         value: "*"
       - key: STORAGE_BACKEND
