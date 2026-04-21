@@ -2,10 +2,12 @@ services:
   - type: web
     name: buaizai-api
     env: python
-    region: singapore          # Nearest to Japan
-    plan: free                 # Upgrade to starter for production
+    region: singapore
+    plan: free
+    # Sửa Build Command để đảm bảo cài đặt vào đúng môi trường
     buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    # Sửa Start Command: Sử dụng python -m uvicorn để Render tìm thấy module
+    startCommand: python -m uvicorn main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /health
     envVars:
       - key: DATABASE_URL
@@ -23,7 +25,7 @@ services:
       - key: STORAGE_BACKEND
         value: local
       - key: LOCAL_BASE_URL
-        value: https://buaizai-api.onrender.com   # ← 変更してください
+        value: https://buaizai-api.onrender.com
       - key: TOKEN_EXPIRE_HOURS
         value: "12"
       - key: AUTO_CLEANUP_DAYS
